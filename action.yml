@@ -1,0 +1,21 @@
+name: 'generate-changelog-action'
+description: 'This action generates a changelog based on the commits since the last release or a given tag.'
+author: 'scomans'
+inputs:
+  tagFrom:
+    required: false
+    description: 'The tag to start from. If not provided, the latest tag will be used.'
+  tagTo:
+    required: false
+    description: 'The tag to end at. If not provided, the HEAD tag will be used.'
+  github_token:
+    required: false
+    description: 'GitHub token to talk to the API with. Required if `tagFrom` is not provided.'
+
+outputs:
+  changelog:
+    description: 'The changelog in markdown format'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
